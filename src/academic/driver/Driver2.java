@@ -3,10 +3,10 @@ package academic.driver;
 import academic.model.Course;
 import academic.model.Student;
 import academic.model.Enrollment;
-import academic.model.Course.InvalidCourseException; 
+import academic.model.Course.InvalidCourseException;
 import academic.model.Student.InvalidStudentException;
 import java.util.*;
- 
+
 public class Driver2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -25,34 +25,64 @@ public class Driver2 {
             switch (parts[0]) {
                 case "course-add":
                     if (parts.length == 5) {
-                        courses.add(new Course(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
+                        try {
+                            String code = parts[1];
+                            String name = parts[2];
+                            int credits = Integer.parseInt(parts[3]);
+                            String instructor = parts[4];
+                            courses.add(new Course(code, name, credits, instructor));
+                        } catch (NumberFormatException e) {
+                            errors.add("Invalid credit value for course: " + parts[3]);
+                        }
+                    } else {
+                        errors.add("Invalid number of arguments for course-add.");
                     }
                     break;
                 
                 case "student-add":
                     if (parts.length == 5) {
-                        students.add(new Student(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
+                        try {
+                            String id = parts[1];
+                            String name = parts[2];
+                            int age = Integer.parseInt(parts[3]);
+                            String major = parts[4];
+                            students.add(new Student(id, name, age, major));
+                        } catch (NumberFormatException e) {
+                            errors.add("Invalid age value for student: " + parts[3]);
+                        }
+                    } else {
+                        errors.add("Invalid number of arguments for student-add.");
                     }
                     break;
                 
                 case "enrollment-add":
                     if (parts.length == 5) {
                         try {
-                            boolean courseExists = courses.stream().anyMatch(c -> c.getCode().equals(parts[1]));
-                            boolean studentExists = students.stream().anyMatch(s -> s.getId().equals(parts[2]));
+                            String courseCode = parts[1];
+                            String studentId = parts[2];
+                            String enrollmentDate = parts[3];
+                            String status = parts[4];
+                            
+                            boolean courseExists = courses.stream().anyMatch(c -> c.getCode().equals(courseCode));
+                            boolean studentExists = students.stream().anyMatch(s -> s.getId().equals(studentId));
                             
                             if (!courseExists) {
-                                throw new InvalidCourseException(parts[1]);
+                                throw new InvalidCourseException(courseCode);
                             } else if (!studentExists) {
-                                throw new InvalidStudentException(parts[2]);
+                                throw new InvalidStudentException(studentId);
                             } else {
-                                enrollments.add(new Enrollment(parts[1], parts[2], parts[3], parts[4]));
+                                enrollments.add(new Enrollment(courseCode, studentId, enrollmentDate, status));
                             }
                         } catch (InvalidCourseException | InvalidStudentException e) {
                             errors.add(e.getMessage());
                         }
+                    } else {
+                        errors.add("Invalid number of arguments for enrollment-add.");
                     }
                     break;
+                
+                default:
+                    errors.add("Unknown command: " + parts[0]);
             }
         }
         
@@ -65,8 +95,15 @@ public class Driver2 {
         // Cetak students secara berurutan
         students.stream().sorted(Comparator.comparing(Student::getId)).forEach(System.out::println);
         
-        // Cetak enrollments dengan tambahan "|None"
-        enrollments.forEach(e -> System.out.println(e));
+        // Cetak enrollments dengan tambahan "|None" hanya jika enrollment tidak valid
+        enrollments.forEach(e -> {
+            String enrollmentDetails = e.toString();
+            if (!enrollmentDetails.contains("None")) {
+                System.out.println(enrollmentDetails + " |None");
+            } else {
+                System.out.println(enrollmentDetails);
+            }
+        });
         
         scanner.close();
     }

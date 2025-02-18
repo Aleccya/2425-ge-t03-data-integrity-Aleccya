@@ -38,10 +38,10 @@ public class Student {
     public InvalidStudentException(String studentId) {
         super("invalid student|" + studentId);
     }
-}
+} 
 
     @Override   
     public String toString() {
         return id + "|" + name + "|" + tahun + "|" + prodi;
-    }  
+    }   
 } 

@@ -16,10 +16,10 @@ public class Enrollment {
     public String getCourseCode() {
         return courseCode;
     }
- 
+  
     public String getStudentId() {
         return studentId;
-    } 
+    }  
 
     public String getAcademicYear() {
         return academicYear;

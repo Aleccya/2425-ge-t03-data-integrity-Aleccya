@@ -32,8 +32,8 @@ public class Course {
     public static class InvalidCourseException extends Exception {
     public InvalidCourseException(String courseCode) {
         super("invalid course|" + courseCode);
-    }
-}  
+    } 
+}   
     @Override
     public String toString() {
         return code + "|" + name + "|" + credits + "|" + grade;
