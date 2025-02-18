@@ -89,21 +89,15 @@ public class Driver2 {
         // Cetak error terlebih dahulu
         errors.forEach(System.out::println);
         
-        // Cetak courses secara berurutan
+        // Urutkan courses berdasarkan kode
         courses.stream().sorted(Comparator.comparing(Course::getCode)).forEach(System.out::println);
         
-        // Cetak students secara berurutan
+        // Urutkan students berdasarkan ID
         students.stream().sorted(Comparator.comparing(Student::getId)).forEach(System.out::println);
         
-        // Cetak enrollments dengan tambahan "|None" hanya jika enrollment tidak valid
-        enrollments.forEach(e -> {
-            String enrollmentDetails = e.toString();
-            if (!enrollmentDetails.contains("None")) {
-                System.out.println(enrollmentDetails + " |None");
-            } else {
-                System.out.println(enrollmentDetails);
-            }
-        });
+        // Urutkan enrollments
+        enrollments.stream().sorted(Comparator.comparing(Enrollment::getCourseCode).thenComparing(Enrollment::getStudentId))
+            .forEach(e -> System.out.println(e + " |None"));
         
         scanner.close();
     }
