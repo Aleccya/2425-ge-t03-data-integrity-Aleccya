@@ -78,15 +78,15 @@ public class Driver1 {
         }
 
         // Menampilkan data yang telah dimasukkan
-        System.out.println("Kursus:");
+      
         for (Course course : courses) {
             System.out.println(course);
         }
-        System.out.println("Mahasiswa:");
+     
         for (Student student : students) {
             System.out.println(student);
         }
-        System.out.println("Pendaftaran:");
+       
         for (Enrollment enrollment : enrollments) {
             System.out.println(enrollment);
         } 

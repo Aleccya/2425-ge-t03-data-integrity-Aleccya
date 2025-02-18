@@ -1,6 +1,6 @@
   {
       "tests": [
-        {
+        {   
           "name": "t03-01-01",
           "setup": "make compile",
           "run": "make -s test_01",
