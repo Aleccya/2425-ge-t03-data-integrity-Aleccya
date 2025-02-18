@@ -33,7 +33,7 @@ public class Course {
     public InvalidCourseException(String courseCode) {
         super("invalid course|" + courseCode);
     }  
-}   
+}    
     @Override
     public String toString() {
         return code + "|" + name + "|" + credits + "|" + grade;

@@ -21,7 +21,7 @@ public class Driver2 {
             
             String[] parts = line.split("#");
             if (parts.length == 0) continue;
-            
+               
             switch (parts[0]) {
                 case "course-add":
                     if (parts.length == 5) {
