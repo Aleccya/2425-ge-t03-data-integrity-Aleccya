@@ -60,7 +60,7 @@ public class Driver2 {
         students.stream().sorted(Comparator.comparing(Student::getId)).forEach(System.out::println);
         
         // Cetak enrollments dengan tambahan "|None"
-        enrollments.forEach(e -> System.out.println(e + "|None"));
+        enrollments.forEach(e -> System.out.println(e));
         
         scanner.close();
     }

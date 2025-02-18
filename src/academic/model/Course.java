@@ -11,7 +11,7 @@ public class Course {
         this.name = name;
         this.credits = credits;
         this.grade = grade;
-    } 
+    }  
  
     public String getCode() {
         return code;

@@ -12,7 +12,7 @@ public class Enrollment {
         this.academicYear = academicYear;
         this.semester = semester;
     } 
- 
+  
     public String getCourseCode() {
         return courseCode;
     }
