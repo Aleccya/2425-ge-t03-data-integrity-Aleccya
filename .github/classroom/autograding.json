@@ -10,7 +10,7 @@
           "timeout": 1,
           "points": 10
         },
-        {
+        { 
           "name": "t03-01-02",
           "setup": "make compile",
           "run": "make -s test_01",

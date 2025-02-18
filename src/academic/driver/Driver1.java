@@ -89,7 +89,7 @@ public class Driver1 {
         System.out.println("Pendaftaran:");
         for (Enrollment enrollment : enrollments) {
             System.out.println(enrollment);
-        }
+        } 
 
         scanner.close();
     }
