@@ -13,7 +13,7 @@ public class Driver1 {
             String input = scanner.nextLine();
             if (input.equals("---")) {
                 break;
-            } 
+            }  
  
             String[] parts = input.split("#");
             if (parts.length == 4) {

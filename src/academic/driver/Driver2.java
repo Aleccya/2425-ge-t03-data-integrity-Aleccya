@@ -6,7 +6,7 @@ import academic.model.Enrollment;
 import academic.model.Course.InvalidCourseException; 
 import academic.model.Student.InvalidStudentException;
 import java.util.*;
-
+ 
 public class Driver2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
