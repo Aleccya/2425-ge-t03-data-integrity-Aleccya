@@ -19,7 +19,7 @@ public class Enrollment {
 
     public String getStudentId() {
         return studentId;
-    }
+    } 
 
     public String getAcademicYear() {
         return academicYear;

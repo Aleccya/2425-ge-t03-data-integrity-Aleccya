@@ -3,6 +3,8 @@ package academic.driver;
 import academic.model.Course;
 import academic.model.Student;
 import academic.model.Enrollment;
+import academic.model.Course.InvalidCourseException; 
+import academic.model.Student.InvalidStudentException;
 import java.util.*;
 
 public class Driver2 {
@@ -35,15 +37,19 @@ public class Driver2 {
                 
                 case "enrollment-add":
                     if (parts.length == 5) {
-                        boolean courseExists = courses.stream().anyMatch(c -> c.getCode().equals(parts[1]));
-                        boolean studentExists = students.stream().anyMatch(s -> s.getId().equals(parts[2]));
-                        
-                        if (!courseExists) {
-                            errors.add("invalid course|" + parts[1]);
-                        } else if (!studentExists) {
-                            errors.add("invalid student|" + parts[2]);
-                        } else {
-                            enrollments.add(new Enrollment(parts[1], parts[2], parts[3], parts[4]));
+                        try {
+                            boolean courseExists = courses.stream().anyMatch(c -> c.getCode().equals(parts[1]));
+                            boolean studentExists = students.stream().anyMatch(s -> s.getId().equals(parts[2]));
+                            
+                            if (!courseExists) {
+                                throw new InvalidCourseException(parts[1]);
+                            } else if (!studentExists) {
+                                throw new InvalidStudentException(parts[2]);
+                            } else {
+                                enrollments.add(new Enrollment(parts[1], parts[2], parts[3], parts[4]));
+                            }
+                        } catch (InvalidCourseException | InvalidStudentException e) {
+                            errors.add(e.getMessage());
                         }
                     }
                     break;

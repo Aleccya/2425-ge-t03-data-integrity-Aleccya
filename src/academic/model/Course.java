@@ -28,7 +28,12 @@ public class Course {
     public String getGrade() {
         return grade;
     }
-
+   
+    public static class InvalidCourseException extends Exception {
+    public InvalidCourseException(String courseCode) {
+        super("invalid course|" + courseCode);
+    }
+} 
     @Override
     public String toString() {
         return code + "|" + name + "|" + credits + "|" + grade;

@@ -34,8 +34,14 @@ public class Student {
         return prodi;
     }
 
+    public static class InvalidStudentException extends Exception {
+    public InvalidStudentException(String studentId) {
+        super("invalid student|" + studentId);
+    }
+}
+
     @Override   
     public String toString() {
         return id + "|" + name + "|" + tahun + "|" + prodi;
-    }
+    } 
 } 
