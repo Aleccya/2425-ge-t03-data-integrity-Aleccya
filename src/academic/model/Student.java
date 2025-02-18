@@ -14,7 +14,7 @@ public class Student {
     }
   public String getId() {
         return id;
-    }
+    } 
     public void setId(String id) {
         this.id = id;
     }
@@ -33,7 +33,7 @@ public class Student {
     public String getProdi() {
         return prodi;
     }
-    
+
     @Override   
     public String toString() {
         return id + "|" + name + "|" + tahun + "|" + prodi;
