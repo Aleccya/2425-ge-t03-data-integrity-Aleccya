@@ -38,10 +38,10 @@ public class Driver2 {
                         boolean courseExists = courses.stream().anyMatch(c -> c.getCode().equals(parts[1]));
                         boolean studentExists = students.stream().anyMatch(s -> s.getId().equals(parts[2]));
                         
-                        if (!studentExists) {
-                            errors.add("invalid student|" + parts[2]);
-                        } else if (!courseExists) {
+                        if (!courseExists) {
                             errors.add("invalid course|" + parts[1]);
+                        } else if (!studentExists) {
+                            errors.add("invalid student|" + parts[2]);
                         } else {
                             enrollments.add(new Enrollment(parts[1], parts[2], parts[3], parts[4]));
                         }
