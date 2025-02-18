@@ -6,7 +6,7 @@ import academic.model.Enrollment;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Driver4 {
+public class Driver1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Course> courses = new ArrayList<>();
@@ -28,7 +28,7 @@ public class Driver4 {
                 // Check for duplicate course
                 boolean courseExists = false;
                 for (Course course : courses) {
-                    if (course.getCourseCode().equals(parts[1])) {
+                    if (course.getCode().equals(parts[1])) {
                         courseExists = true;
                         break;
                     }
@@ -41,7 +41,7 @@ public class Driver4 {
                 // Check for duplicate student
                 boolean studentExists = false;
                 for (Student student : students) {
-                    if (student.getStudentId().equals(parts[1])) {
+                    if (student.getId().equals(parts[1])) {
                         studentExists = true;
                         break;
                     }
