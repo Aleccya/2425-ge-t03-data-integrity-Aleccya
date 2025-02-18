@@ -24,8 +24,9 @@ public class Driver1 {
 
             String command = parts[0];
 
+            // Menambahkan kursus
             if (command.equals("course-add") && parts.length == 5) {
-                // Check for duplicate course
+                // Periksa apakah kursus sudah ada berdasarkan kode kursus
                 boolean courseExists = false;
                 for (Course course : courses) {
                     if (course.getCode().equals(parts[1])) {
@@ -35,10 +36,13 @@ public class Driver1 {
                 }
                 if (!courseExists) {
                     courses.add(new Course(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
+                } else {
+                    System.out.println("Kursus dengan kode " + parts[1] + " sudah ada.");
                 }
             } 
+            // Menambahkan mahasiswa
             else if (command.equals("student-add") && parts.length == 5) {
-                // Check for duplicate student
+                // Periksa apakah mahasiswa sudah ada berdasarkan ID mahasiswa
                 boolean studentExists = false;
                 for (Student student : students) {
                     if (student.getId().equals(parts[1])) {
@@ -48,10 +52,13 @@ public class Driver1 {
                 }
                 if (!studentExists) {
                     students.add(new Student(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
-                } 
+                } else {
+                    System.out.println("Mahasiswa dengan ID " + parts[1] + " sudah ada.");
+                }
             } 
+            // Menambahkan pendaftaran
             else if (command.equals("enrollment-add") && parts.length == 5) {
-                // Check for duplicate enrollment
+                // Periksa apakah pendaftaran sudah ada untuk kursus, mahasiswa, dan tahun akademik yang sama
                 boolean enrollmentExists = false;
                 for (Enrollment enrollment : enrollments) {
                     if (enrollment.getCourseCode().equals(parts[1]) &&
@@ -63,16 +70,23 @@ public class Driver1 {
                 }
                 if (!enrollmentExists) {
                     enrollments.add(new Enrollment(parts[1], parts[2], parts[3], parts[4]));
+                } else {
+                    System.out.println("Pendaftaran untuk kursus " + parts[1] + " oleh mahasiswa " + parts[2] +
+                            " pada tahun akademik " + parts[3] + " sudah ada.");
                 }
             }
         }
 
+        // Menampilkan data yang telah dimasukkan
+        System.out.println("Kursus:");
         for (Course course : courses) {
             System.out.println(course);
         }
+        System.out.println("Mahasiswa:");
         for (Student student : students) {
             System.out.println(student);
         }
+        System.out.println("Pendaftaran:");
         for (Enrollment enrollment : enrollments) {
             System.out.println(enrollment);
         }

@@ -18,7 +18,7 @@ public class Driver2 {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             if (line.equals("---")) break;
-            
+             
             String[] parts = line.split("#");
             if (parts.length == 0) continue;
                  
