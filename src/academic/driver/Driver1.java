@@ -70,12 +70,12 @@ public class Driver1 {
         // Print students in the order they were added
         for (Student student : students) {
             System.out.println(student);
-        }
+        } 
 
         // Print enrollments in the order they were added
         for (Enrollment enrollment : enrollments) {
             System.out.println(enrollment);
-        }
+        } 
 
         scanner.close();
     }
