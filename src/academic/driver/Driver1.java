@@ -91,6 +91,6 @@ public class Driver1 {
             System.out.println(enrollment);
         } 
  
-        scanner.close();
+        scanner.close(); 
     }
 }
