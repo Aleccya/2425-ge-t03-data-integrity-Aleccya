@@ -1,14 +1,14 @@
 name: GitHub Classroom Workflow
 
 on:
-  - push  
+  - push
   - workflow_dispatch
- 
+
 permissions:
-  checks: write 
+  checks: write
   actions: read
   contents: read
-
+ 
 jobs:
   build:
     name: Autograding
