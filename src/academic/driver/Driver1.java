@@ -86,7 +86,7 @@ public class Driver1 {
         for (Student student : students) {
             System.out.println(student);
         }
-       
+         
         for (Enrollment enrollment : enrollments) {
             System.out.println(enrollment);
         } 
