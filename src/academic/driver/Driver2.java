@@ -29,7 +29,7 @@ public class Driver2 {
 
             String[] parts = input.split("#");
             if (parts.length < 5) continue;
-
+ 
             String command = parts[0];
 
             if (command.equals("course-add") && parts.length == 5) {
