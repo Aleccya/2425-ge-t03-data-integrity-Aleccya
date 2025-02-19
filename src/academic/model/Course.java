@@ -7,6 +7,7 @@ public class Course {
     private String name;
     private int credits;
     private String grade;
+    
 
     // Constructor, getters, and setters
 
@@ -16,7 +17,6 @@ public class Course {
         this.credits = credits;
         this.grade = grade;
         
-
     }
 
     public String getId() {

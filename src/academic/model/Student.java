@@ -14,14 +14,12 @@ public class Student {
     private String major;
     
 
-
     // Constructor, getters, and setters
 
     public Student(String id, String name, int year, String major) {
         this.id = id;
         this.name = name;
         this.year = year;
-
         this.major = major;
     }
 
