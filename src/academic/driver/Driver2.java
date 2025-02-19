@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
-  
+   
 public class Driver2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
