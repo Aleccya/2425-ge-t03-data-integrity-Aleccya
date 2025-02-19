@@ -8,6 +8,7 @@ public class Enrollment {
     private String studentId;
     private String academicYear;
     private String semester;
+    
 
     // Constructor, getters, and setters
 
@@ -17,7 +18,7 @@ public class Enrollment {
         this.academicYear = academicYear;
         this.semester = semester;
     }
-    
+
 
     public String getCourseId() {
         return courseId;

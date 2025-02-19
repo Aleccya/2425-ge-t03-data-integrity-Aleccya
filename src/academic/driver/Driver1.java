@@ -70,6 +70,7 @@ public class Driver1 {
         for (Student student : students) {
             System.out.println(student);
         }
+        
 
         // Print enrollments in the order they were added
         for (Enrollment enrollment : enrollments) {
@@ -78,5 +79,6 @@ public class Driver1 {
 
         scanner.close();
     }
-    
+
 }
+ 
